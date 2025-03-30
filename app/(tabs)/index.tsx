@@ -4,11 +4,13 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import Button from "@/components/Button"
 
 export default function HomeScreen() {
   const tareas = ["Lavar","volar","rolav"]
   return (
     <View>
+      <Button />
       <View style={styles.wrapper}>
         {
           tareas.map((el)=><Text style={styles.items}>{el}</Text>)
