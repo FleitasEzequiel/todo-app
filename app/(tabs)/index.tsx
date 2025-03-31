@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
-
+import { createContext, useContext, useState } from 'react';
+import { Provider } from '@/components/context/taskProvider';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -7,13 +8,15 @@ import { ThemedView } from '@/components/ThemedView';
 import Button from "@/components/Button"
 
 export default function HomeScreen() {
-  const tareas = ["Lavar","volar","rolav"]
+  const [tasks,setTasks] = useState(["Lavar","volar","rolav"])
   return (
     <View>
+      <Provider>
       <Button />
+      </Provider>
       <View style={styles.wrapper}>
         {
-          tareas.map((el)=><Text style={styles.items}>{el}</Text>)
+          tasks.map((el)=><Text style={styles.items}>{el}</Text>)
         }
       </View>
       <Text>Holas</Text>

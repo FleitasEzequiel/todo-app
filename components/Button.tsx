@@ -1,8 +1,13 @@
 import { View,Button,TextInput, StyleSheet,Text } from "react-native"
-import { useState } from "react"
+import { useState,useContext } from "react"
+import { taskContext } from "./context/taskContext"
 
 const Component = () =>{
     const [nombre, setNombre] = useState("")
+    const { addTasks,tasks } = useContext(taskContext)
+    const handler =() =>{
+        addTasks(nombre)
+    }
     const style1 = StyleSheet.create({
         button:{
             backgroundColor:"blue",
@@ -11,7 +16,7 @@ const Component = () =>{
     return(
         <View style={style1.button}>
             <TextInput inputMode="text" onChangeText={(text)=>setNombre(text)} className="yo"/>
-            <Button title={`Añadir Tarea ${nombre}`} onPress={()=>console.log("holis")}>
+            <Button title={`Añadir Tarea ${nombre}`} onPress={()=>handler()}>
                 </Button> 
         </View>
     )
