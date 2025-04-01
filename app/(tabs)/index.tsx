@@ -1,24 +1,26 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Provider } from '@/components/context/taskProvider';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Button from "@/components/Button"
+import { taskContext } from '@/components/context/taskContext';
+import { List } from '@/components/TaskList';
+
 
 export default function HomeScreen() {
-  const [tasks,setTasks] = useState(["Lavar","volar","rolav"])
+
+  
   return (
     <View>
       <Provider>
       <Button />
-      </Provider>
       <View style={styles.wrapper}>
-        {
-          tasks.map((el)=><Text style={styles.items}>{el}</Text>)
-        }
+        <List />
       </View>
+      </Provider>
       <Text>Holas</Text>
     </View>
   );
@@ -28,7 +30,12 @@ const styles = StyleSheet.create({
   wrapper:{
     alignSelf:"center",
     flexDirection:"column",
-    gap:20
+    gap:20,
+    borderWidth: 2,
+    borderCurve: "circular",
+    borderRadius: 10,
+    padding: 20,
+    borderColor: "red",
   },
   items:{
     backgroundColor:"red",

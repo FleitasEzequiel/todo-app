@@ -4,7 +4,7 @@ import { taskContext } from "./context/taskContext"
 
 const Component = () =>{
     const [nombre, setNombre] = useState("")
-    const { addTasks,tasks } = useContext(taskContext)
+    const {addTasks} = useContext(taskContext)
     const handler =() =>{
         addTasks(nombre)
     }
