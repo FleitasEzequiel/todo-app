@@ -8,8 +8,11 @@ export const Provider = ({children}) => {
         setTasks((state)=>[...state,newTask])
         console.log("nuevo task",tasks)
     }
+    const removeTask = (target: string): void =>{
+        setTasks((state)=>state.filter((el)=>el !== target))
+    }
     return(
-        <taskContext.Provider value={{addTasks, tasks}}>
+        <taskContext.Provider value={{addTasks,removeTask, tasks,}}>
             {children}
         </taskContext.Provider>
     )

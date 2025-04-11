@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { taskContext } from "./context/taskContext";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 export const List = () =>{
     const styles = StyleSheet.create({
@@ -15,10 +15,13 @@ export const List = () =>{
         gap:20
       }  
     })
-    const {tasks} = useContext(taskContext)
+    const {tasks, removeTask} = useContext(taskContext)
+    const touchHandler = (e) =>{
+      removeTask(e)
+    }
     return(
         <>
-            { tasks.map((el)=><View style={styles.items}><Text>{el}</Text></View>)}
+            { tasks.map((el)=><TouchableHighlight onPress={(e)=>touchHandler(el)}><View style={styles.items}><Text>{el}</Text></View></TouchableHighlight>)}
         </>
     )
 }

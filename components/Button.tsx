@@ -16,8 +16,7 @@ const Component = () =>{
     return(
         <View style={style1.button}>
             <TextInput inputMode="text" onChangeText={(text)=>setNombre(text)} className="yo"/>
-            <Button title={`Añadir Tarea ${nombre}`} onPress={()=>handler()}>
-                </Button> 
+            <Button title={`Añadir Tarea ${nombre}`} onPress={()=>handler()}/>
         </View>
     )
 }
