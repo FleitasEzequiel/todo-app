@@ -16,12 +16,15 @@ export const List = () =>{
       }  
     })
     const {tasks, removeTask} = useContext(taskContext)
-    const touchHandler = (e) =>{
-      removeTask(e)
+    const touchHandler = (set,task) =>{
+      removeTask({
+        "set":set,
+        "task":task
+      })
     }
     return(
         <>
-            { tasks.map((conjunto,index)=><View>{conjunto.map((tarea)=><TouchableHighlight onPress={(e)=>touchHandler(tarea)}><View style={styles.items}><Text>{tarea}</Text></View></TouchableHighlight>) } </View>)}
+            { tasks.map((conjunto,index)=><View>{conjunto.tasks.map((tarea)=><TouchableHighlight onPress={(e)=>touchHandler(conjunto.set,tarea)}><View style={styles.items}><Text>{tarea}</Text></View></TouchableHighlight>) } </View>)}
         </>
     )
 }
