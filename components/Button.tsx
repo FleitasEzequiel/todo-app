@@ -6,7 +6,10 @@ const Component = () =>{
     const [nombre, setNombre] = useState("")
     const {addTasks} = useContext(taskContext)
     const handler =() =>{
-        addTasks(nombre)
+        addTasks({
+            "set":"hola",
+            "task": nombre
+        })
     }
     const style1 = StyleSheet.create({
         button:{
