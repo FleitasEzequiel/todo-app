@@ -9,10 +9,10 @@ export const Provider = ({children}) => {
     console.log("provider:",tasks)
     const addTasks = (task : {set:string,task:string}) : void => {
     console.log(tasks)
-    const newArray = tasks.map((list )=>{return {...list, "tasks": "chipue"}})
-        console.log("antes que nada:", newArray)
-        setTasks(newArray)
-        }
+    const newArray = tasks.map((list )=>{return {...list, "tasks": ["chipue","chipue2"]}})
+    console.log("antes que nada:", newArray)
+    setTasks(newArray)
+    }
         // console.log("nuevo task",tasks)
     const removeTask = (target: string): void =>{
         // setTasks((state)=>{

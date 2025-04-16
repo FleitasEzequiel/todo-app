@@ -24,7 +24,8 @@ export const List = () =>{
     }
     return(
         <>
-        {tasks.map((el)=>{console.log(el)})}
+        {tasks.map((el)=><View>{el.tasks.map((task)=><Text>{task}</Text> )}</View>)}
+        {/* {tasks.map((set)=>{<View>{set.tasks.map((task,index)=>{return <Text>Hola</Text>})}</View>})} */}
             {/* { tasks.map((conjunto,index)=><View>{conjunto.tasks.map((tarea)=><TouchableHighlight onPress={(e)=>touchHandler(conjunto.set,tarea)}><View style={styles.items}><Text>{tarea}</Text></View></TouchableHighlight>) } </View>)} */}
         </>
     )
